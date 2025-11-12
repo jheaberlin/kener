@@ -20,8 +20,9 @@ export async function load({ params, route, url, cookies }) {
 	}
 	let userCount = await db.getUsersCount();
 	const query = url.searchParams;
+	console.log("userCount.count", userCount.count);
 	return {
 		error: query.get("error"),
-		firstUser: userCount.count === 0
+		firstUser: Number(userCount.count) === 0
 	};
 }
